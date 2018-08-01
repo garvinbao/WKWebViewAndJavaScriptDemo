@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>我是头标签</title>
+        <script>
+        // JS给OC发送消息
+        function js2oc1() {
+            window.webkit.messageHandlers.noParamsFunction.postMessage('我是js方法传过来的数据');
+        }
+        function js2oc2(x,y) {
+            window.webkit.messageHandlers.haveParamsFunction.postMessage({name:x,age:y});
+        }
+    
+        // oc点击事件调用该函数
+        function oc2js1() {
+            alert("OC调用js方法 - 无参");
+            document.getElementById("labelId").innerHTML = "oc按钮调用了js方法 - 无参";
+        }
+        function oc2js2(a,b) {
+            alert("OC调用js方法 - 有参");
+            document.getElementById("labelId").innerHTML = "oc按钮调用了js方法 - 参数："+a+b;
+        }
+        </script>
+    </head>
+    <body>
+        <h2>是H5按钮</h2>
+        <button type="button" style="width:230pt;height:80pt;font-size:20pt" onclick="js2oc1()">js调用oc的按钮1</button>
+        <button type="button" style="width:230pt;height:80pt;font-size:20pt" onclick="js2oc2('Gavin','18')">js调用oc的按钮2</button>
+        
+        <h1 id=labelId>label</h1>
+    </body>
+</html>
