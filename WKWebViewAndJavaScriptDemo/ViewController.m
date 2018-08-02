@@ -2,8 +2,8 @@
 //  ViewController.m
 //  WKWebViewAndJavaScriptDemo
 //
-//  Created by fengling on 2018/7/26.
-//  Copyright © 2018年 fengling. All rights reserved.
+//  Created by Garvin on 2018/7/26.
+//  Copyright © 2018年 Garvin. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -27,7 +27,7 @@
 
 - (void)loadUI {
     WKUserContentController *_userContentController = [[WKUserContentController alloc] init];
-    
+    // 注册JS消息，name必须JS发送消息时的名字对应
     [_userContentController addScriptMessageHandler:self name:@"noParamsFunction"];
     [_userContentController addScriptMessageHandler:self name:@"haveParamsFunction"];
     
